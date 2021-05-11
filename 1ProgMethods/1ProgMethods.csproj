@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Container.cs" />
+    <Compile Include="FunctionalLang.cs" />
     <Compile Include="lang.cs" />
     <Compile Include="proc.cs" />
     <Compile Include="oop.cs" />
