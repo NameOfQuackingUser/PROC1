@@ -14,12 +14,12 @@ struct Container
             langs.Add(l);
         }
     }
-    public void Print(StreamWriter writer)
+    public void Print(StreamWriter writer, int filter)
     {
         for(int i=0;i<langs.Count;i++)
         {
             writer.Write("Id: {0}\t", i);
-            langs[i].Print(writer);
+            langs[i].Print(writer, filter);
         }
     }
     public void Clear()

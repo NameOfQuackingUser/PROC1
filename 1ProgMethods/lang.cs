@@ -23,8 +23,15 @@ struct lang
         }
     }
 
-    public void Print(StreamWriter writer)
+    public void Print(StreamWriter writer, int filter)
     {
+        if (filter != elem && filter > -1)
+        {
+            writer.Write("\n");
+            return;
+        }
+            
+
         writer.Write("Development year: {0}\t", year);
         switch (elem)
         {
