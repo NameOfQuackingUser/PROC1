@@ -6,7 +6,7 @@ struct oop
     enum inher { SINGLE, MULTIPLE, INTERFACE };
     public oop(string[] data)
     {
-        this.i = (inher)int.Parse(data[2]);
+        this.i = (inher)int.Parse(data[3]);
     } 
     inher i;
 
