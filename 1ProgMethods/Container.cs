@@ -1,4 +1,5 @@
-﻿using System;
+﻿using _1ProgMethods;
+using System;
 using System.Collections.Generic;
 using System.IO;
 struct Container
@@ -30,6 +31,19 @@ struct Container
     public int Count()
     {
         return langs.Count;
+    }
+
+    public void Sort()
+    {
+        
+        for (int i = 0; i < langs.Count - 1; i++)
+            for (int j = i + 1; j < langs.Count; j++)
+                if (Age.Compare(langs[i], langs[j]))
+                {
+                    lang t = langs[i];
+                    langs[i] = langs[j];
+                    langs[j] = t;
+                }
     }
 
 }

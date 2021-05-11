@@ -25,6 +25,10 @@ namespace _0ProgMethods
             writer.WriteLine("Container contains {0} elements", container.Count());
             container.Print(writer);
 
+            container.Sort();
+            writer.WriteLine("Container sorted");
+            container.Print(writer);
+
             container.Clear();
             writer.WriteLine("Cleared");
             writer.WriteLine("Container contains {0} elements", container.Count());
