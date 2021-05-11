@@ -22,10 +22,14 @@ struct lang
             default: break;
         }
     }
+    public int HowOldIsLang()
+    {
+        return DateTime.Now.Year - year;
+    }
 
     public void Print(StreamWriter writer)
     {
-        writer.Write("Development year: {0}\t", year);
+        writer.Write("Development year: {0}\tAgeOfLang: {1}\t", year, HowOldIsLang());
         switch (elem)
         {
             case 0: procElem.Print(writer); break;
