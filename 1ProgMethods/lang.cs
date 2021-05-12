@@ -4,6 +4,7 @@ using System.IO;
 struct lang
 {
     int year;
+    int timesSearched;
 
     proc procElem;
     oop oopElem;
@@ -14,6 +15,7 @@ struct lang
     {
         string[] tmp = reader.ReadLine().Split(' ');
         year = int.Parse(tmp[1]);
+        timesSearched = int.Parse(tmp[2]);
 
         elem = int.Parse(tmp[0]);
         switch (elem)
@@ -27,7 +29,7 @@ struct lang
 
     public void Print(StreamWriter writer)
     {
-        writer.Write("Development year: {0}\t", year);
+        writer.Write("Development year: {0}\tTimes searched: {1}", year, timesSearched);
         switch (elem)
         {
             case 0: procElem.Print(writer); break;

@@ -5,7 +5,7 @@ struct proc
 {
     public proc(string[] data)
     {
-        this.isAbstract = bool.Parse(data[2]); 
+        this.isAbstract = bool.Parse(data[3]); 
     }
 
     bool isAbstract;
