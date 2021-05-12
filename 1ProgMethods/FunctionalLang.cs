@@ -5,8 +5,8 @@ struct FunctionalLang
 {
     public FunctionalLang(string[] data)
     {
-        this.typ = (typization)int.Parse(data[2]);
-        this.lazyCalc = bool.Parse(data[3]);
+        this.typ = (typization)int.Parse(data[3]);
+        this.lazyCalc = bool.Parse(data[4]);
     }
     enum typization { strict, dynamic };
     typization typ;
