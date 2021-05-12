@@ -26,10 +26,16 @@ struct lang
             default: break;
         }
     }
+    public int HowOldIsLang()
+    {
+        return DateTime.Now.Year - year;
+    }
 
     public void Print(StreamWriter writer)
     {
-        writer.Write("Development year: {0}\tTimes searched: {1}", year, timesSearched);
+
+        writer.Write("Development year: {0}\tTimes searched: {1}\tAgeOfLang: {2}\t", year, timesSearched, HowOldIsLang());
+
         switch (elem)
         {
             case 0: procElem.Print(writer); break;
