@@ -30,7 +30,7 @@ namespace _0ProgMethods
 
             container.Sort();
             writer.WriteLine("Container sorted");
-            container.Print(writer);
+            container.Print(writer, -1);
 
             container.Clear();
             writer.WriteLine("Cleared");
