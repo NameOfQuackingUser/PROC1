@@ -31,10 +31,16 @@ struct lang
         return DateTime.Now.Year - year;
     }
 
-    public void Print(StreamWriter writer)
+    public void Print(StreamWriter writer, int filter)
     {
+        if (filter != elem && filter > -1)
+        {
+            writer.Write("\n");
+            return;
+        }
 
         writer.Write("Development year: {0}\tTimes searched: {1}\tAgeOfLang: {2}\t", year, timesSearched, HowOldIsLang());
+
 
         switch (elem)
         {

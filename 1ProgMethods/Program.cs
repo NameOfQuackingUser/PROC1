@@ -23,7 +23,10 @@ namespace _0ProgMethods
 
             //Console.WriteLine("Container contains {0} elements",container.Count());
             writer.WriteLine("Container contains {0} elements", container.Count());
-            container.Print(writer);
+            container.Print(writer,-1);
+
+            writer.WriteLine("Only proc langs");
+            container.Print(writer, 0);
 
             container.Sort();
             writer.WriteLine("Container sorted");
