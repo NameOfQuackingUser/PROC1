@@ -26,11 +26,12 @@ struct lang
                 case 0: procElem = new proc(tmp); break;
                 case 1: oopElem = new oop(tmp); break;
                 case 2: functionalElem = new FunctionalLang(tmp); break;
-                default: break;
+                default: throw new IndexOutOfRangeException();
             }
         }catch(Exception ex)
         {
             Console.WriteLine(ex.Message);
+            elem = -1;
         }
 
         
@@ -58,7 +59,7 @@ struct lang
                 case 0: procElem.Print(writer); break;
                 case 1: oopElem.Print(writer); break;
                 case 2: functionalElem.Print(writer); break;
-                default: break;
+                default: throw new IndexOutOfRangeException();
             }
         }catch(Exception ex)
         {

@@ -5,6 +5,8 @@ struct FunctionalLang
 {
     public FunctionalLang(string[] data)
     {
+        if (int.Parse(data[3]) > 2)
+            throw new IndexOutOfRangeException();
         this.typ = (typization)int.Parse(data[3]);
         this.lazyCalc = bool.Parse(data[4]);
     }

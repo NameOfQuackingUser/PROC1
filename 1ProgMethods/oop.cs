@@ -6,13 +6,16 @@ struct oop
     enum inher { SINGLE, MULTIPLE, INTERFACE };
     public oop(string[] data)
     {
-        this.i = (inher)int.Parse(data[3]);
+        if (int.Parse(data[3]) > 3)
+            throw new IndexOutOfRangeException();
+        this.i = int.Parse(data[3]);
     } 
-    inher i;
+    int i;
 
     public void Print(StreamWriter writer)
     {
-        writer.WriteLine("\tType: Object-oriented\tInheritance: {0}", i);
+        
+        writer.WriteLine("\tType: Object-oriented\tInheritance: {0}", (inher)i);
     }
 
 }
