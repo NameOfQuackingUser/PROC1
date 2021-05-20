@@ -32,4 +32,34 @@ struct Container
         return langs.Count;
     }
 
+    public void Multimethod(StreamWriter writer)
+    {
+        for(int i = 0; i < langs.Count; i++)
+            for(int j = 0; j < langs.Count; j++)
+            {
+                if (i == j)
+                    continue;
+                switch (langs[i].GetElem())
+                {
+                    case 0:
+                        switch (langs[j].GetElem())
+                        {
+                            case 0: writer.WriteLine("proc & proc"); break;
+                            case 1: writer.WriteLine("proc & oop"); break;
+                        }
+                        break;
+                    case 1:
+                        switch (langs[j].GetElem())
+                        {
+                            case 0: writer.WriteLine("oop & proc"); break;
+                            case 1: writer.WriteLine("oop & oop"); break;
+                        }
+                        break;
+                    
+
+                }
+
+            }
+    }
+
 }

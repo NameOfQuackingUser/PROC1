@@ -35,4 +35,9 @@ struct lang
         
         
     }
+
+    public int GetElem()
+    {
+        return elem;
+    }
 }

@@ -25,6 +25,10 @@ namespace _0ProgMethods
             writer.WriteLine("Container contains {0} elements", container.Count());
             container.Print(writer);
 
+            writer.WriteLine("MultiMethod:");
+            container.Multimethod(writer);
+
+
             container.Clear();
             writer.WriteLine("Cleared");
             writer.WriteLine("Container contains {0} elements", container.Count());
