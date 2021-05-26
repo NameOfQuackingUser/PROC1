@@ -35,7 +35,7 @@ struct Container
     public void Multimethod(StreamWriter writer)
     {
         for(int i = 0; i < langs.Count; i++)
-            for(int j = 0; j < langs.Count; j++)
+            for(int j = i + 1; j < langs.Count; j++)
             {
                 if (i == j)
                     continue;
