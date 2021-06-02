@@ -13,26 +13,39 @@ namespace _0ProgMethods
         {
             Console.WriteLine("Start...");
 
+            if (Test())
+            {
+                Console.WriteLine("Test finished");
+                Execute();
+            }
+
+            Console.WriteLine("Finish");
+            Console.ReadLine();
+        }
+
+        static bool Test()
+        {
             Container container = new Container();
             StreamReader reader;
             try
             {
-                reader = new StreamReader("in.txt");
-            }catch(Exception ex)
+                reader = new StreamReader("test.txt");
+            }
+            catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.ReadLine();
-                return;
+                return false;
             }
-            
-            StreamWriter writer = new StreamWriter("out.txt");
+
+            StreamWriter writer = new StreamWriter("testOut.txt");
             writer.WriteLine("Start...");
 
             container.In(reader);
 
             //Console.WriteLine("Container contains {0} elements",container.Count());
             writer.WriteLine("Container contains {0} elements", container.Count());
-            container.Print(writer,-1);
+            container.Print(writer, -1);
 
             writer.WriteLine("Only proc langs");
             container.Print(writer, 0);
@@ -44,12 +57,69 @@ namespace _0ProgMethods
             container.Clear();
             writer.WriteLine("Cleared");
             writer.WriteLine("Container contains {0} elements", container.Count());
-            
+
             writer.WriteLine("Finish");
 
             writer.Close();
-            Console.WriteLine("Finish");
-            Console.ReadLine();
+
+
+            string[] strs1 = File.ReadAllLines("testOut.txt");
+            string[] strs2 = File.ReadAllLines("testEtalon.txt");
+
+            if (strs1.Length != strs2.Length)
+            {
+                Console.WriteLine("Test failed");
+                return false;
+            }
+            for (int i = 0; i < strs1.Length; i++)
+            {
+                if (strs1[i] != strs2[i])
+                {
+                    Console.WriteLine("error at {0}", i);
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        static void Execute()
+        {
+            Container container = new Container();
+            StreamReader reader;
+            try
+            {
+                reader = new StreamReader("in.txt");
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                Console.ReadLine();
+                return;
+            }
+
+            StreamWriter writer = new StreamWriter("out.txt");
+            writer.WriteLine("Start...");
+
+            container.In(reader);
+
+            //Console.WriteLine("Container contains {0} elements",container.Count());
+            writer.WriteLine("Container contains {0} elements", container.Count());
+            container.Print(writer, -1);
+
+            writer.WriteLine("Only proc langs");
+            container.Print(writer, 0);
+
+            container.Sort();
+            writer.WriteLine("Container sorted");
+            container.Print(writer, -1);
+
+            container.Clear();
+            writer.WriteLine("Cleared");
+            writer.WriteLine("Container contains {0} elements", container.Count());
+
+            writer.WriteLine("Finish");
+
+            writer.Close();
         }
     }
 }
